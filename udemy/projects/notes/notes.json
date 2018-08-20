@@ -1,0 +1,9 @@
+{
+    "notes": [
+        {
+            "id": null,
+            "title": "How to exit in node.js",
+            "body": "Unlike command line script, express app keeps running infinitely, waiting for new requests. process.exit() will be a bad option here because it's ..."
+        }
+    ]
+}
