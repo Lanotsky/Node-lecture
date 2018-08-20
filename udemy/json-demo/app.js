@@ -17,6 +17,6 @@ fs.readFile('songlist.json', 'utf8', (err, data)=>{
     if(err) {
         return err;
     }
-    let stringData = JSON.parse(data);
-    console.log(stringData);
+    let objData = JSON.parse(data);
+    console.log(objData);
 })
