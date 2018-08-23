@@ -23,7 +23,7 @@ const writeFile = (notesOjb)=> {
 module.exports = {
     addNote: (title, body) => {
         var notesObj = fetchFile();
-        let notes = notesObj.notes;
+        var notes = notesObj.notes;
         let duplicateNotes = notes.filter((note)=> note.title===title);
         if(duplicateNotes.length===0) {
             notes.push({ id: null, title, body });
@@ -41,7 +41,13 @@ module.exports = {
         })
     },
     removeNote: (title) => {
-        console.log('removed ' + title);
+        let file = fetchFile();
+        let files = file.notes;
+        let notes = files.filter((note)=>{
+            return note.title != title;
+        })
+        console.log(notes);
+        writeFile({notes});
     },
     readNote: (title) => {
         console.log('read title');
