@@ -20,10 +20,14 @@ const writeFile = (notesOjb)=> {
     });
 }
 
+const getNotes = ()=>{
+    var notesObj = fetchFile();
+    return notes = notesObj.notes;
+}
+
 module.exports = {
     addNote: (title, body) => {
-        var notesObj = fetchFile();
-        var notes = notesObj.notes;
+        var notes = getNotes();
         let duplicateNotes = notes.filter((note)=> note.title===title);
         if(duplicateNotes.length===0) {
             notes.push({ id: null, title, body });
@@ -41,15 +45,21 @@ module.exports = {
         })
     },
     removeNote: (title) => {
-        let file = fetchFile();
-        let files = file.notes;
+        let files = getNotes();
         let notes = files.filter((note)=>{
             return note.title != title;
         })
-        console.log(notes);
-        writeFile({notes});
+        (files.length === notes.length) ? console.log('no notes removed') : writeFile({ notes });
     },
     readNote: (title) => {
-        console.log('read title');
+        let files = getNotes();
+        let notes = files.filter((note) => {
+            return note.title === title; 
+        });
+        if(notes.length!=0){
+            console.log(`------------Note------------ \n#Title: ${notes[0].title}\n#Body: ${notes[0].body}\n ----------EndNote---------- `)
+        } else {
+            console.log(`------------Note------------ \n NOTE NOT FOUND\n ----------EndNote---------- `)
+        }
     }
 }

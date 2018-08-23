@@ -13,7 +13,7 @@ if (command_1 === 'add') {
 } else if (command_1 === 'remove') {
     notes.removeNote(args.title);
 } else if (command_1 === 'read') {
-    notes.listAllNotes();
+    notes.readNote(args.title);
 } else {
     console.log(`
     command --> ${args._} not recognized
