@@ -2,7 +2,6 @@ const request = require('request');
 const yargs = require('yargs');
 const geocode = require('./geocode');
 const weather = require('./weather');
-
 const argv = yargs.
     options({
         address: {
@@ -15,6 +14,8 @@ const argv = yargs.
     .help()
     .alias('help', 'h')
     .argv;
+
+// or you can just use axios...
 
 const promise = new Promise((resolve,reject)=>{
     geocode.geocodeAddress(argv.a, (err, result) => {
@@ -40,6 +41,8 @@ const promise = new Promise((resolve,reject)=>{
     })
 },(reject)=>{
     console.log(reject)
-})
+    }).catch((reject)=>{
+        consolel.log(reject);
+});
 
 

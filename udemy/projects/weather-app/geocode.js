@@ -1,4 +1,4 @@
-const request = require('request');
+const request = require('axios');
 
 const geocodeAddress = (address, callback)=>{
     var url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}`; // escapes and ready to inject to url

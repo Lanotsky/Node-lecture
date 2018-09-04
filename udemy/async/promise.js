@@ -13,3 +13,21 @@ const promise = new Promise((resovle,reject)=>{
 })
 
 console.log('FIRE FIRST');
+
+// returning promises and chaining promises
+
+const asyncFoo = (a,b)=>{
+    return new Promise((resolve, reject)=>{
+        if(typeof a === 'number' && typeof b ==='number') {
+            resolve(a + b)
+        } else {
+            reject('Args must be numbers');
+        }
+    })
+}
+
+asyncFoo(20,20).then((resolve)=>{
+    console.log(resolve)
+},(reject)=>{
+    console.log(reject)
+})
