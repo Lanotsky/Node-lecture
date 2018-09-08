@@ -1,0 +1,7 @@
+1. convert the node weather app into a js bundle using 
+webpack. (bundle.min.js)
+2. use html5 navigator.geolocation (see: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
+to pass itself as the default longditude, lattitude to 
+the weather app function
+3. Crete a simple frontend interface to the app. 
+4. add user interaction: have them change the address and see the weather on that location (see problem with OVER QUERY LIMIT given by google geolocation API)
