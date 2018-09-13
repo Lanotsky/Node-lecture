@@ -3,6 +3,8 @@ const https = require('https');
 const hbs = require('hbs');
 const fs = require('fs');
 const app = express();
+
+const port = process.env.PORT || 8080;
 app.set('view engine', 'hbs'); // set our template engine to handlebars
 // handlebars will look for any hbs file in views
 hbs.registerPartials(__dirname + '/views/partials');
